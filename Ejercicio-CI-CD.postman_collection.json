@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "8d24ff2f-27a6-4517-8479-04d4ec646981",
-		"name": "Ejercicio CI/CD",
+		"name": "Ejercicio-CI/CD",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -13,6 +13,7 @@
 					"script": {
 						"exec": [
 							"var nameExpected = \"charmander\"",
+							"var abilityExpected = \"blaze\"",
 							"",
 							"pm.test(\"Test - Validate status Ok\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -21,6 +22,7 @@
 							"pm.test(\"Test - Validate fields\", function(){",
 							"    const responseJson = pm.response.json()",
 							"    pm.expect(responseJson.forms[0].name).to.eql(nameExpected)",
+							"    pm.expect(responseJson.abilities[0].ability.name).to.eql(abilityExpected)",
 							"})",
 							"",
 							""
