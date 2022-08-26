@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "8d24ff2f-27a6-4517-8479-04d4ec646981",
+		"name": "Ejercicio CI/CD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "pokedex-charmander",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var nameExpected = \"charmander\"",
+							"",
+							"pm.test(\"Test - Validate status Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"",
+							"pm.test(\"Test - Validate fields\", function(){",
+							"    const responseJson = pm.response.json()",
+							"    pm.expect(responseJson.forms[0].name).to.eql(nameExpected)",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/charmander",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						"charmander"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
